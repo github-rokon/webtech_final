@@ -94,7 +94,7 @@ if ($conn->query($update_query) === true) {
     <!-- Ensure each input field is pre-filled with the existing data -->
     <input type="hidden" name="User_ID" value="<?php echo $row['User_ID']; ?>">
 
-
+    <input type="hidden" name="user" value="<?php echo $faculty_id ?>">
     <label for="fstname">First name:</label>
     <input type="text" name="fstname" id="fstname" value="<?php echo $row['First_Name']; ?>">
     <br><br>
@@ -119,11 +119,12 @@ if ($conn->query($update_query) === true) {
         <option value="A-" <?php echo ($row['Blood_Group'] === 'A-') ? 'selected' : ''; ?>>A-</option>
         <option value="B+" <?php echo ($row['Blood_Group'] === 'B+') ? 'selected' : ''; ?>>B+</option>
         <option value="B-" <?php echo ($row['Blood_Group'] === 'B-') ? 'selected' : ''; ?>>B-</option>
-        <option value="AB+" <?php echo ($row['Blood_Group'] === 'AB+') ? 'selected' : ''; ?>>AB+</option>
-        <option value="AB-" <?php echo ($row['Blood_Group'] === 'AB-') ? 'selected' : ''; ?>>AB-</option>
+        <option value="AB+" <?php echo($row['Blood_Group'] === 'AB+') ? 'selected' : ''; ?>>AB+</option>
+        <option value="AB-" <?php echo($row['Blood_Group'] === 'AB-') ? 'selected' : ''; ?>>AB-</option>
         <option value="O-" <?php echo ($row['Blood_Group'] === 'O-') ? 'selected' : ''; ?>>O-</option>
         <option value="O+" <?php echo ($row['Blood_Group'] === 'O+') ? 'selected' : ''; ?>>O+</option>
     </select>
+    <br><br>
 
     <label for="religion"><b>Religion :</b></label>
     <select id="religion" name="religion" required>
@@ -170,7 +171,7 @@ if ($conn->query($update_query) === true) {
     <input type="text" name="pwd" id="pwd" value="<?php echo $row['Password_']; ?>">
     <br><br>
 
-    <label for="faculty"><b>Faculty :</b></label>
+    <label for="faculty">Faculty :</label>
     <select id="faculty" name="faculty" required>
         <option value="FACULTY OF SCIENCE & TECHNOLOGY" <?php echo ($row['Faculty'] === 'FACULTY OF SCIENCE & TECHNOLOGY') ? 'selected' : ''; ?>>FACULTY OF SCIENCE & TECHNOLOGY</option>
         <option value="FACULTY OF BUSINESS ADMINISTRATION" <?php echo ($row['Faculty'] === 'FACULTY OF BUSINESS ADMINISTRATION') ? 'selected' : ''; ?>>FACULTY OF BUSINESS ADMINISTRATION</option>

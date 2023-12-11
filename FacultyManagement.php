@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 </table>
-
+<br><br>
 <table>
     <fieldset>
 <legend>Insert Faculty Information</legend>

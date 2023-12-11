@@ -22,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
 <input type="submit" name="submit" value="Go to Dashboard">
 </form>
 
-<table>
+<table align="center" cellpadding="25" cellspacing="0" width="auto" border="1" >
 
 <tr>
     <th>User ID</th>
@@ -40,7 +40,7 @@ if (!isset($_SESSION['admin_id'])) {
     <th>Email</th>
     <th>Password</th>
     <th>Department</th>
-
+    <th>Action</th>
 </tr>
 
 <?php
@@ -62,7 +62,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>". $row["User_ID"]."</td><td>". $row["First_Name"]."</td><td>". $row["Last_Name"]."</td><td>". $row["Gender"]."</td><td>". $row["DateOfBirth"]."</td><td>". $row["Blood_Group"]."</td><td>". $row["Religion"]."</td><td>". $row["NID"]."</td><td>". $row["Father_Name"]."</td><td>". $row["Mother_Name"]."</td><td>". $row["SSC_gpa"]."</td><td>". $row["HSC_gpa"]."</td><td>". $row["Email"]."</td><td>". $row["Password_"]."</td><td>". $row["Dept"]."</td><td>";
+        echo "<tr><td>". $row["User_ID"]."</td><td>". $row["First_Name"]."</td><td>". $row["Last_Name"]."</td><td>". $row["Gender"]."</td><td>". $row["DateOfBirth"]."</td><td>". $row["Blood_Group"]."</td><td>". $row["Religion"]."</td><td>". $row["NID"]."</td><td>". $row["Father_Name"]."</td><td>". $row["Mother_Name"]."</td><td>". $row["SSC_gpa"]."</td><td>". $row["HSC_gpa"]."</td><td>". $row["Email"]."</td><td>". $row["Password_"]."</td><td>". $row["Dept"]."</td>";
         echo "<td><a href=\"updateStu.php?User_ID=$row[User_ID]\">Edit</a> | 
         <a href=\"delStu.php?User_ID=$row[User_ID]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 } 
