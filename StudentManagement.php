@@ -175,7 +175,7 @@ function test_input($data) {
 
 
 ?>
-
+<br><br>
 <table>
     <fieldset>
                         <legend>Insert Student infortmation</legend>
