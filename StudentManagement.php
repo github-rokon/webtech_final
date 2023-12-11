@@ -179,7 +179,7 @@ function test_input($data) {
 <table>
     <fieldset>
                         <legend>Insert Student infortmation</legend>
-
+<br><br>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
   <label for="fstname">First name:</label>
   <input type="text" name="fstname" id="fstname" value="<?php echo $fstname; ?>">

@@ -84,9 +84,6 @@ $fstname = $lstname = $gender = $DoB = $bg = $religion = $nid = $fname = $mname 
 $fstnameErr = $lstnameErr = $genderErr = $DoBErr = $bgErr = $religionErr = $nidErr = $fnameErr = $mnameErr = $ssc_gpaErr = $hsc_gpaErr = $bsc_cgpaErr = $msc_cgpaErr = $emailErr = $pwdErr = $facultyErr =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-
-        
         // Validate the first name
         $fstname = test_input($_POST["fstname"]);
         if (empty($fstname)) {
@@ -201,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <table>
     <fieldset>
 <legend>Insert Faculty Information</legend>
-
+<br><br>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return registration()">
 
   <label for="fstname">First name:</label>
