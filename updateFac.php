@@ -87,7 +87,7 @@ if ($conn->query($update_query) === true) {
 
 <h1>Update Faculty Information</h1>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+<form method="post" action="updatefaculty.php">
     <input type="hidden" name="faculty_id" value="<?php echo $row['User_ID']; ?>">
     
     <!-- Add other input fields for the update form -->
@@ -139,11 +139,11 @@ if ($conn->query($update_query) === true) {
     <br><br>
 
     <label for="fname">Father's name:</label>
-    <input type="text" name="fname" id="fname" value="<?php echo $row['Father_Name']; ?>">
+    <input type="text" name="fname" id="fname" value="<?php echo $row['Father_name']; ?>">
     <br><br>
 
     <label for="mname">Mother's name:</label>
-    <input type="text" name="mname" id="mname" value="<?php echo $row['Mother_Name']; ?>">
+    <input type="text" name="mname" id="mname" value="<?php echo $row['Mother_name']; ?>">
     <br><br>
 
     <label for="ssc_gpa">SSC Result:</label>
@@ -159,7 +159,7 @@ if ($conn->query($update_query) === true) {
     <br><br>
 
     <label for="msc_cgpa">MSc Result:</label>
-    <input type="text" name="msc_cgpa" id="msc_cgpa" value="<?php echo $row['MSc_cgpa']; ?>">
+    <input type="text" name="msc_cgpa" id="msc_cgpa" value="<?php echo $row['Msc_cgpa']; ?>">
     <br><br>
 
     <label for="email">Email:</label>
@@ -177,8 +177,6 @@ if ($conn->query($update_query) === true) {
         <option value="FACULTY OF ENGINEERING" <?php echo ($row['Faculty'] === 'FACULTY OF ENGINEERING') ? 'selected' : ''; ?>>FACULTY OF ENGINEERING</option>
         <option value="FACULTY OF ARTS & SOCIAL SCIENCES" <?php echo ($row['Faculty'] === 'FACULTY OF ARTS & SOCIAL SCIENCES') ? 'selected' : ''; ?>>FACULTY OF ARTS & SOCIAL SCIENCES</option>
     </select><br><br>
-
-
     <input type="submit" name="update" value="Update Faculty">
 </form>
 </fieldset>
