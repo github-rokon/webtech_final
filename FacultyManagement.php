@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Check if the admin is not logged in, redirect to login page
 if (!isset($_SESSION['admin_id'])) {
     header('Location: admin_login.php');
@@ -25,7 +24,7 @@ if (!isset($_SESSION['admin_id'])) {
     <input type="submit" name="submit" value="Log Out">
 </form>
 
-<table>
+<table align="center" cellpadding="25" cellspacing="0" width="auto" border="1" >
 
 <tr>
     <th>User ID</th>
@@ -45,7 +44,7 @@ if (!isset($_SESSION['admin_id'])) {
     <th>Email</th>
     <th>Password</th>
     <th>Faculty</th>
-
+    <th>Action</th>
 </tr>
     
 <?php
@@ -69,7 +68,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>". $row["User_ID"]."</td><td>". $row["First_Name"]."</td><td>". $row["Last_Name"]."</td><td>". $row["Gender"]."</td><td>". $row["DateOfBirth"]."</td><td>". $row["Blood_Group"]."</td><td>". $row["Religion"]."</td><td>". $row["NID"]."</td><td>". $row["Father_Name"]."</td><td>". $row["Mother_Name"]."</td><td>". $row["SSC_gpa"]."</td><td>". $row["HSC_gpa"]."</td><td>". $row["BSc_cgpa"]."</td><td>". $row["MSc_cgpa"]."</td><td>". $row["Email"]."</td><td>". $row["Password_"]."</td><td>". $row["Faculty"]."</td><td>";
+        echo "<tr><td>". $row["User_ID"]."</td><td>". $row["First_Name"]."</td><td>". $row["Last_Name"]."</td><td>". $row["Gender"]."</td><td>". $row["DateOfBirth"]."</td><td>". $row["Blood_Group"]."</td><td>". $row["Religion"]."</td><td>". $row["NID"]."</td><td>". $row["Father_Name"]."</td><td>". $row["Mother_Name"]."</td><td>". $row["SSC_gpa"]."</td><td>". $row["HSC_gpa"]."</td><td>". $row["BSc_cgpa"]."</td><td>". $row["MSc_cgpa"]."</td><td>". $row["Email"]."</td><td>". $row["Password_"]."</td><td>". $row["Faculty"]."</td>";
         echo "<td><a href=\"updateFac.php?User_ID=$row[User_ID]\">Edit</a> | 
         <a href=\"delFac.php?User_ID=$row[User_ID]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 } 
@@ -214,7 +213,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <input type="text" name="lstname" id="lstname" value="<?php echo $lstname; ?>">
   <span class="error"><?php echo $lstnameErr; ?></span>
   <br><br>
-
   <p><b>Gender : </b></p>
   <input type="radio" id="Male" name="gender" value="Male" <?php if ($gender === "Male") echo "checked"; ?>>
   <label for="Male">Male</label><br>
@@ -232,6 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <label for="bg">Blood Group: </label>
     <select name="bg" id="bg" placeholder="Select..." required>
+    <option value="" selected>Select Blood Group</option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
@@ -241,19 +240,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <option value="O-">O-</option>
     <option value="O+">0+</option>
     </select><br>
-
-  <label for="Religion"><b>Religion :</b></label>
+    <br>
+  <label for="Religion">Religion :</label>
     <select id="religion" name="religion" placeholder="Select..." required>
+    <option value="" selected>Select Religion</option>
     <option value="Muslim">Muslim</option>
     <option value="Hindu">Hindu</option>
     <option value="Christian">Christian</option>
     <option value="Buddha">Buddha</option>
     <option value="Others">Others</option>
     </select>
+    <br><br>
 
-
-  <label for="nid">NID :</label>
-  <input type="number" name="nid" id="nid" value="<?php echo $nid; ?>">
+  <label for="nid">NID :</label>&nbsp;<input type="number" name="nid" id="nid" value="<?php echo $nid; ?>">
   <span class="error"><?php echo $nidErr; ?></span>
   <br><br>
 
@@ -297,8 +296,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <span class="error"><?php echo $pwdErr; ?></span>
   <br><br>
 
-  <label for="Faculty"><b>Faculty :</b></label>
+  <label for="Faculty">Faculty :</label>
     <select id="faculty" name="Faculty" placeholder="Select..." required>
+    <option value="" selected>Select Faculty</option>
     <option value="FACULTY OF SCIENCE & TECHNOLOGY">FACULTY OF SCIENCE & TECHNOLOGY</option>
     <option value="FACULTY OF BUSINESS ADMINISTRATION">FACULTY OF BUSINESS ADMINISTRATION</option>
     <option value="FACULTY OF ENGINEERING">FACULTY OF ENGINEERING</option>

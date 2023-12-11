@@ -13,14 +13,15 @@ if (!isset($_SESSION['admin_id'])) {
     <title>Dashboard</title>
 </head>
 <body>
+    <center>
     <h1>Welcome to the Dashboard</h1>
-    
-    <a href="FacultyManagement.php">Faculty Management</a><br>
-    <a href="StudentManagement.php">Student Management</a><br>
-    <a href="StuffManagement.php">Stuff Management</a><br>
-
     <form method="post" action="admin_login.php">
+    <a href="FacultyManagement.php">Faculty Management</a><br><br>
+    <a href="StudentManagement.php">Student Management</a><br><br>
+    <a href="StuffManagement.php">Stuff Management</a><br><br>
+
         <input type="submit" name="submit" value="Log Out">
     </form>
+    </center>
 </body>
 </html>

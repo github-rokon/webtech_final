@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $admin = 001;
 $adminpass = 12345;
 
@@ -21,16 +20,20 @@ if (isset($_POST['login'])) {
 
 <html>
 <head>
-    <title>Admin Log in</title>
+    <title>Admin LOGIN</title>
 </head>
 <body>
-    <h1> Admin Log in </h1>
+    <center>
+    <h1> Admin Login</h1>
 
     <form method="post">
         <input type="number" name="ID" placeholder="ID" required><br>
+        <br>
         <input type="password" name="pass" placeholder="Password" required><br>
+        <br>
         <input type="submit" name="login" value="Login"> <br>
     </form>
+    </center>
 
     <?php
     if (isset($error_message)) {
